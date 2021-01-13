@@ -13,7 +13,7 @@ function App() {
 	const [loading, setLoading] = useState(false);
 	const [found, setFound] = useState(true);
 	const [currentPage, setCurrentPage] = useState(1);
-  	const [postsPerPage] = useState(5);
+  	const [postsPerPage] = useState(4);
 	const [query, setQuery] = useState('');
 	const API_KEY = "beb3e254";
 
@@ -58,7 +58,7 @@ function App() {
 			<form
         id='form'
 				action='submit'
-				className='search-form'
+				className="search-wrapper cf"
 				onSubmit={e => onSubmitHandler(e)}
 			>
 				<input
