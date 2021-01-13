@@ -1,11 +1,12 @@
 import React from 'react';
+import './App.css'
 
 const movie = ({ title, image, year, imdb}) => {
 	return (
-		<div onClick={() => window.open(`https://www.imdb.com/title/${imdb}/`)} className='movie-card'>
-			<h1 className='movie-title'>{title}</h1>
+		<div onClick={() => window.open(`https://www.imdb.com/title/${imdb}/`)} className='movie'>
 			<img src={image} alt='' className='movie-poster' />
-			<h3 className='movie-year'>{year}</h3>
+			<h1 className='movie-info'>{title}</h1>
+			{/* <h3 className='movie-year'>{year}</h3> */}
 		</div>
 	);
 };

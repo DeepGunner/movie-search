@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react';
 import NotFound from './NotFound';
 import Results from './components/Results';
 import Pagination from './components/Pagination';
+import './App.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSearch } from '@fortawesome/free-solid-svg-icons'
 
 
 function App() {
@@ -51,32 +54,35 @@ function App() {
 	const paginate = pageNumber => setCurrentPage(pageNumber);
 	return (
 		<div className='App'>
+      <header>
 			<form
+        id='form'
 				action='submit'
 				className='search-form'
 				onSubmit={e => onSubmitHandler(e)}
 			>
 				<input
+          type="text"
+          id="search"
 					type='text'
-					className='search-movie'
+					className='search'
 					value={search}
 					onChange={onSearchHandler}
 					placeholder='Search a movie here'
 				/>
-				<button className='search-button'>Search</button>
+				<button className='search-button'><FontAwesomeIcon icon={faSearch} /></button>
 			</form>
-			<div className='Container'>
+      </header>
+      <main id='main'>
 			{!found || moviesList === [] ? <NotFound /> : ''}
-			<div className='container mt-5'>
 
       		<Results movies={currentPosts} loading={loading} />
-      		<Pagination
+      </main>
+      <Pagination
         		postsPerPage={postsPerPage}
         		totalPosts={moviesList ? moviesList.length : 0}
         		paginate={paginate}
       		/>
-    		</div>
-			</div>
 		</div>
 	);
 }

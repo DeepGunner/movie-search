@@ -1,5 +1,7 @@
 import React from 'react';
 import Movie from '../../Movie';
+import '../../App.css'
+
 
 const Results = ({ movies, loading }) => {
   if (loading) {
@@ -7,11 +9,11 @@ const Results = ({ movies, loading }) => {
   }
 
   if(movies === ''){
-    return <h2>Not Found</h2>
+    return <h2></h2>
   }
 
   return (
-    <ul className='list-group mb-4'>
+    <>
       {movies.map((movie, i) => (
         <Movie
             key={i}
@@ -20,7 +22,7 @@ const Results = ({ movies, loading }) => {
             year={movie.Year}
             imdb={movie.imdbID}
         />))}
-    </ul>
+  </>
   )
 }
 
